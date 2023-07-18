@@ -121,7 +121,7 @@ namespace TalentQuest.API.Controllers
 		}
 
 		/// <summary>
-		/// Get candidates by selection process by id
+		/// Get candidates by selection process id
 		/// </summary>
 		/// <returns>
 		/// </returns>
