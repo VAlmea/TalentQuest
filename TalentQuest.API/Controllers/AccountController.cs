@@ -27,7 +27,8 @@ namespace TalentQuest.API.Controllers
 				return Unauthorized(new ApiResponse(401, "Unauthorized"));
 
 			var result = await _accountService.LoginAsync(loginRequestDto);
-
+			if (result.accessToken == null)
+				return Unauthorized(new ApiResponse(401, "Invalid credentials"));
 			return Ok(new ApiOkResponse(new { accessToken = result.accessToken }));
 		}
 
