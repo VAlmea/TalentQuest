@@ -52,11 +52,11 @@ namespace TalentQuest.API.Controllers
 		/// <summary>
 		/// Creates a Selecction Process.
 		/// </summary>
-		/// <returns>A newly created TodoItem</returns>
+		/// <returns>A newly created Item</returns>
 		/// <remarks>
 		/// Sample request:
 		///
-		///     POST /Todo
+		///     POST /api/selection-process
 		///     {
 		///        "name": "Selection Process #1",
 		///        "startDate": 2023-06-24,
