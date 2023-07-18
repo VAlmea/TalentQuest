@@ -45,13 +45,15 @@ namespace TalentQuest.Services.Impl
 
 		public async Task<(User user, string accessToken)> LoginAsync(LoginRequestDto loginRequest)
 		{
+
 			var user = await _uow.UsersRepository.FirstOrDefaultAsync(u => u.Email == loginRequest.Email);
-			if(!BCrypt.Net.BCrypt.Verify(loginRequest.Password, user.PasswordHash))
+			var claims = new List<Claim>();
+			string token = null;
+			if(BCrypt.Net.BCrypt.Verify(loginRequest.Password, user.PasswordHash))
 			{
-				 throw new Exception("Password doesn´t match");
-			}
-			var claims = GetClaims(user);
-			var token = GetToken(claims);
+				claims = GetClaims(user);
+				token = GetToken(claims);
+			}			
 
 			return (user, token);
 		}
