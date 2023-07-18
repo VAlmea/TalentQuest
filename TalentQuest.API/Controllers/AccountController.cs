@@ -6,7 +6,6 @@ using TalentQuest.Services;
 
 namespace TalentQuest.API.Controllers
 {
-	//[Authorize]
 	[Route("api/account")]
 	[ApiController]
 	public class AccountController : ControllerBase

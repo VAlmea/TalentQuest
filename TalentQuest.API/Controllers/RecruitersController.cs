@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TalentQuest.API.Responses;
 using TalentQuest.Common.DTO.Response;
@@ -6,6 +7,7 @@ using TalentQuest.Services;
 
 namespace TalentQuest.API.Controllers
 {
+	[Authorize]
 	[ApiController]
 	[Route("api/recruiters")]
 	public class RecruitersController : ControllerBase
