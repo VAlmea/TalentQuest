@@ -9,7 +9,7 @@ using TalentQuest.Services;
 
 namespace TalentQuest.API.Controllers
 {
-	[Authorize]
+
 	[ApiController]
 	[Route("api/selection-process")]
 	public class SelectionProcessController : ControllerBase

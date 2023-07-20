@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>TalentQuest</span>
+  <span class="example-spacer"></span>
+  <button mat-raised-button (click)="openAddEditProcessForm()">
+    NUEVO PROCESO
+  </button>
+</mat-toolbar>
+
+<mat-card *ngFor="let sp of SelectionProcesses" class="card">
+  <mat-card-header>
+    <mat-card-title>{{sp.name}} - {{sp.id}}</mat-card-title>
+    <mat-card-subtitle>{{sp.startDate}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-mini-fab class="edit-btn" aria-label="Example icon button with a filter list icon">
+      <mat-icon>edit_square</mat-icon>
+    </button>
+    <button mat-mini-fab color="warn" (click)="deleteProcess(sp.id)" aria-label="Example icon button with a filter list icon">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
