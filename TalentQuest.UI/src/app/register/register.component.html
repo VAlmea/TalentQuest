@@ -1,5 +1,5 @@
 
-<mat-card class="login-card">
+<mat-card *ngIf="!success" class="login-card">
     <mat-card-header>
       <mat-card-title>Formulario de registro</mat-card-title>
     </mat-card-header>
@@ -40,4 +40,15 @@
         Registrarse
       </button>      
     </mat-card-actions>
+  </mat-card>
+
+  <mat-card *ngIf="success" class="login-card">
+        <mat-card-content>
+        <div class="row">
+            <h2>Usuario registrado satisfactoriamente</h2>
+        </div>
+        <div class="row">
+           <p><a routerLink="/login">Inicie sesión </a> para continuar</p>
+        </div>        
+    </mat-card-content>    
   </mat-card>
