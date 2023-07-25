@@ -1,0 +1,35 @@
+.login-card{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    margin-top: 10%;
+    margin-left: 35%;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+    margin: 10px;
+  }
+.mat-mdc-card-content{
+    width: 100%;
+    padding: 30px;
+}
+
+.errorMessage{
+    color: red;
+    border-color: brown;
+}

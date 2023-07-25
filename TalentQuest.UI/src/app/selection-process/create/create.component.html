@@ -1,0 +1,60 @@
+<h1 mat-dialog-title>Nuevo proceso</h1>
+<div mat-dialog-content class="content">
+    <div class="row">
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput placeholder="Placeholder" [(ngModel)]="selectionProcess.name">
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field>
+            <mat-label>Fecha Inicio</mat-label>
+            <input matInput [matDatepicker]="StartDate" [(ngModel)]="selectionProcess.startDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="StartDate"></mat-datepicker-toggle>
+            <mat-datepicker #StartDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Fecha fin</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="selectionProcess.endDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field>
+            <mat-label>Estado</mat-label>
+            <mat-select [(ngModel)]="selectionProcess.processState">
+                <mat-option [value]="0">
+                    BORRADOR
+                </mat-option>
+                <mat-option [value]="1">
+                    RECLUTANDO
+                </mat-option> 
+                <mat-option [value]="2">
+                    FINALIZADO
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field>
+            <mat-label>Reclutadores</mat-label>
+            <mat-select [formControl] = "recruitersControl" multiple [(ngModel)]="selectionProcess.recruiters">
+              <mat-select-trigger>
+                {{recruitersControl.value?.[0] || ''}}
+                <span *ngIf="(recruitersControl.value?.length || 0) > 1" class="example-additional-selection">
+                  (+{{(recruitersControl.value?.length || 0) - 1}} {{recruitersControl.value?.length === 2 ? 'other' : 'others'}})
+                </span>
+              </mat-select-trigger>
+              <mat-option *ngFor="let recruiter of recruiters" [value]="recruiter.id">{{recruiter.firstName}} {{recruiter.lastName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+</div>
+<div mat-dialog-actions ngClass="mat-dialog-actions">
+    <button mat-raised-button mat-dialog-close color="primary" (click)="save()">Guardar</button>
+    <button mat-raised-button mat-dialog-close >Cerrar</button>
+</div>

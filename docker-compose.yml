@@ -11,12 +11,18 @@ services:
       - dbdata:/var/opt/mssql
   api:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ./Backend
+      dockerfile: TalentQuest.API/Dockerfile
     ports:
       - 8083:80
       - 443:443
     depends_on:
       - db
+  frontend:
+    build:
+      context: ./TalentQuest.UI
+      dockerfile: Dockerfile
+    ports:
+      - 4200:80       
 volumes:
   dbdata:

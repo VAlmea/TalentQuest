@@ -4,22 +4,13 @@
   </button>
   <span>TalentQuest</span>
   <span class="example-spacer"></span>
-  <button mat-raised-button (click)="openAddEditProcessForm()">
-    NUEVO PROCESO
+  <button *ngIf="!isAuthenticated(); else logOutTemplate" mat-mini-fab routerLink="/login" aria-label="login">
+    <mat-icon>login</mat-icon>
   </button>
+  <ng-template #logOutTemplate>
+    <button mat-mini-fab (click)="logout()" aria-label="logout">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </ng-template>
 </mat-toolbar>
-
-<mat-card *ngFor="let sp of SelectionProcesses" class="card">
-  <mat-card-header>
-    <mat-card-title>{{sp.name}} - {{sp.id}}</mat-card-title>
-    <mat-card-subtitle>{{sp.startDate}}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-actions>
-    <button mat-mini-fab class="edit-btn" aria-label="Example icon button with a filter list icon">
-      <mat-icon>edit_square</mat-icon>
-    </button>
-    <button mat-mini-fab color="warn" (click)="deleteProcess(sp.id)" aria-label="Example icon button with a filter list icon">
-      <mat-icon>delete</mat-icon>
-    </button>
-  </mat-card-actions>
-</mat-card>
+<router-outlet></router-outlet>

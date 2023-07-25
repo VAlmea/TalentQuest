@@ -1,19 +1,14 @@
-.content{
-    padding-top: 10px;
-}
-
-.row{
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.example-additional-selection {
-    opacity: 0.75;
-    font-size: 0.75em;
+  .card{
+    margin: 20px;
   }
 
-  .mat-mdc-form-field {
-    font-size: 14px;
-    width: 100%;
+  .edit-btn{
+    margin: 10px;
+    background-color: orange;
+  }
+  .new-process-btn{
+    margin: 30px;
+  }
+  .mdc-card__actions{
+    justify-content: end;
   }
